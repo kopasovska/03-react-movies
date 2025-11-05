@@ -49,7 +49,7 @@ function App() {
       <SearchBar onSubmit={onSearch} />
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
-      {movies.length > 0 && <MovieGrid movies={movies} onMovieClick={onOpen} />}
+      {movies.length > 0 && <MovieGrid movies={movies} onSelect={onOpen} />}
       {isModalOpen && selectedMovie && (
         <MovieModal movie={selectedMovie} onClose={onClose} />
       )}
