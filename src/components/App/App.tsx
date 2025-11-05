@@ -10,7 +10,6 @@ import MovieGrid from "../MovieGrid/MovieGrid.tsx";
 import MovieModal from "../MovieModal/MovieModal.tsx";
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -30,7 +29,6 @@ function App() {
     try {
       setIsLoading(true);
       setIsError(false);
-      setSearchQuery(query);
 
       const movies = await fetchMovies(query);
       if (movies.length === 0) {
@@ -47,14 +45,14 @@ function App() {
   };
 
   return (
-    <>
+    <div className={styles.app}>
       <SearchBar onSubmit={onSearch} />
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
       {movies.length > 0 && <MovieGrid movies={movies} onMovieClick={onOpen} />}
       {isModalOpen && <MovieModal movie={selectedMovie} onClose={onClose} />}
       <Toaster />
-    </>
+    </div>
   );
 }
 
