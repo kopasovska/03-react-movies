@@ -4,7 +4,7 @@ import type { Movie } from "../../types/movie";
 import { useEffect } from "react";
 
 interface MovieModalProps {
-  movie: Movie | null;
+  movie: Movie;
   onClose: () => void;
 }
 

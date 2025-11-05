@@ -50,7 +50,9 @@ function App() {
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
       {movies.length > 0 && <MovieGrid movies={movies} onMovieClick={onOpen} />}
-      {isModalOpen && <MovieModal movie={selectedMovie} onClose={onClose} />}
+      {isModalOpen && selectedMovie && (
+        <MovieModal movie={selectedMovie} onClose={onClose} />
+      )}
       <Toaster />
     </div>
   );
